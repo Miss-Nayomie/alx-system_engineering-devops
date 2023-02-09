@@ -1,2 +1,8 @@
 #!/bin/bash
-find / -user john
+file_owner=$(stat -c '%U' hello)
+
+if [ "$file_owner" == "guillaume" ]; then
+    chown betty hello
+else
+	echo "User not found"
+fi
